@@ -1,5 +1,5 @@
-# CSV-556
-CSV-556 Home Automation using IOT
+# Relay Switch Automation
+Home Automation using relay-switch
 
 ## About this project
 This is a personal Project that I'm working on to automate most of the **Electronic devices** and *switches* in my home.
