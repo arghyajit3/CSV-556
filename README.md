@@ -11,3 +11,5 @@ This project is aimed at making control over our day to day devices much easier 
 3. 12V 4 Channel Relay with Octocoupler
 4. IR Photo Diodes
 5. IR Remote
+
+> Still in development phase.
