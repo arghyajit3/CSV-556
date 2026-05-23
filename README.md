@@ -2,7 +2,7 @@
 Home Automation using relay-switch
 
 ## About this project
-This is a Project that I'm working on to automate most of the **Electronic devices** and *switches* in my home.
+This is a Project that I'm working on to automate most of the **Electronic devices** and *switches* in a home.
 This project is aimed at making control over our day to day devices much easier and faster to control at the palm of your hand, without replacing the traditional physical switches that we all still love and use today.
 
 ### Components Used
