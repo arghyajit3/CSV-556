@@ -8,7 +8,7 @@ This project is aimed at making control over our day to day devices much easier 
 ### Components Used
 1. Arduino Nano
 2. HLK-PM01 240V AC 50Hz to 5V DC / 3W
-3. 12V 4 Channel Relay with Octocoupler
+3. 12V 4-Channel Relay with Octocoupler (More relays can be added in the future, at request)
 4. IR Photo Diodes
 5. IR Remote
 
