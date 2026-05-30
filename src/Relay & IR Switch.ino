@@ -4,10 +4,10 @@
 //////////// VARIABLES ////////////
 
 // Pins
-#define IR 2 // Later to 9
-#define SWITCH 3 // Later to 8
-#define RELAY1 9 // Later to 2
-#define RELAY2 8 // Later to 3
+#define IR 9
+#define SWITCH 8
+#define RELAY1 2
+#define RELAY2 3
 #define RELAY3 4
 #define RELAY4 5
 
@@ -37,9 +37,10 @@ void setup() {
 
 //////////// MAIN CODE ////////////
 void loop() {
+
+  // SWITCH //
   int switchState = digitalRead(SWITCH);
 
-  // Toggle relay on switch toggle
   if (switchState != lastSwitchState) {
     delay(50); // to prevent mircoscopic debounces
     switchState = digitalRead(SWITCH); // checks switch state again to confirm that state is different
@@ -51,7 +52,7 @@ void loop() {
     }
   }
 
-  // IR remote to toggle relay
+// RELAYS //
   if (IrReceiver.decode()) {
     uint32_t code = IrReceiver.decodedIRData.decodedRawData;
     
@@ -64,10 +65,37 @@ void loop() {
     Serial.println(code, HEX); // For experimental / pre development purpose
 
     switch (code) {
-      case 0x6E91F300: // Off button for atomberg fans (6E91F300)
+
+      // RELAY 1
+      case 0x7F80BA45:
+      case 0xFE01BA45:
         relayState = !relayState;
         digitalWrite(RELAY1, relayState ? HIGH : LOW);
-        Serial.println(relayState ? "Relay ON" : "Relay OFF"); // For experimental / pre development purpose
+        Serial.println(relayState ? "Relay1 ON" : "Relay1 OFF"); // For experimental / pre development purpose
+        break;
+      
+      // RELAY 2
+      case 0x7E81BA45:
+      case 0xFD02BA45:
+        relayState = !relayState;
+        digitalWrite(RELAY2, relayState ? HIGH : LOW);
+        Serial.println(relayState ? "Relay2 ON" : "Relay2 OFF"); // For experimental / pre development purpose
+        break;
+
+      // RELAY 3
+      case 0xAE51BA45:
+      case 0xFC03BA45:
+        relayState = !relayState;
+        digitalWrite(RELAY3, relayState ? HIGH : LOW);
+        Serial.println(relayState ? "Relay3 ON" : "Relay3 OFF"); // For experimental / pre development purpose
+        break;
+
+      // RELAY 4
+      case 0xB24DBA45:
+      case 0xFB04BA45:
+        relayState = !relayState;
+        digitalWrite(RELAY4, relayState ? HIGH : LOW);
+        Serial.println(relayState ? "Relay4 ON" : "Relay4 OFF"); // For experimental / pre development purpose
         break;
     }
 
